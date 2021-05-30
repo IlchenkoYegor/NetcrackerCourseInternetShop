@@ -24,6 +24,10 @@ public class Utils {
         return cartInfo;
     }
 
+    public static void replaceCartInSession(HttpServletRequest request, CartInfo newCartInfo){
+        request.setAttribute("myCart", newCartInfo);
+    }
+
     public static void removeCartInSession(HttpServletRequest request) {
         request.getSession().removeAttribute("myCart");
     }

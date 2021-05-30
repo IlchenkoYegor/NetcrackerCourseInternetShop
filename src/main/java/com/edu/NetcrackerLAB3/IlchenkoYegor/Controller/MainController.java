@@ -211,6 +211,7 @@ public class MainController {
         CartInfo cartInfo = Utils.getCartInSession(request);
 
         if (cartInfo.isEmpty()) {
+            LOGGER.debug(cartInfo.isEmpty() +"- is empty");
             return "redirect:/shoppingCart";
         } else if (!cartInfo.isValidCustomer()) {
             return "redirect:/shoppingCartCustomer";
@@ -247,9 +248,12 @@ public class MainController {
         Account account =  customerForm;
         accountDAO.updateAccount(account);
         CustomerInfo customerInfo = new CustomerInfo();
+        customerInfo.setValid(true);
         customerInfo.setAccount(account);
+        cartInfo.updateQuantity(cartInfo);
         cartInfo.setCustomerInfo(customerInfo);
-        Utils.storeLastOrderedCartInSession(request, cartInfo);
+        Utils.replaceCartInSession(request, cartInfo);
+        //Utils.storeLastOrderedCartInSession(request, cartInfo);
         LOGGER.debug(cartInfo.getCartLines().get(0).getProductInfo().getName());
         return "redirect:/shoppingCartConfirmation";
     }

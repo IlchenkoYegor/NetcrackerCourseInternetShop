@@ -32,9 +32,9 @@
     <tr>
         <th>Order Num</th>
         <th>Order Date</th>
-        <th>Customer Name</th>
-        <th>Customer Address</th>
-        <th>Customer Email</th>
+        <th>Account Id</th>
+        <th>Order Id</th>
+
         <th>Amount</th>
         <th>View</th>
     </tr>
@@ -44,9 +44,9 @@
             <td>
                 <fmt:formatDate value="${orderInfo.orderDate}" pattern="dd-MM-yyyy HH:mm"/>
             </td>
-            <td>account Id ${orderInfo.accountId}</td>
+            <td> ${orderInfo.accountId}</td>
             <td>${orderInfo.id}</td>
-            <td>${orderInfo.amount}</td>
+
             <td style="color:red;">
                 <fmt:formatNumber value="${orderInfo.amount}" type="currency"/>
             </td>
