@@ -122,21 +122,22 @@
     <dependency>
       <groupId>org.springframework.security</groupId>
       <artifactId>spring-security-web</artifactId>
-      <version>5.4.3</version>
+      <version>4.2.10.RELEASE</version>
     </dependency>
 
     <!-- http://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
     <dependency>
       <groupId>org.springframework.security</groupId>
       <artifactId>spring-security-config</artifactId>
-      <version>5.4.3</version>
+      <version>4.2.10.RELEASE</version>
     </dependency>
+
 
     <!-- http://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs -->
     <dependency>
       <groupId>org.springframework.security</groupId>
       <artifactId>spring-security-taglibs</artifactId>
-      <version>5.4.3</version>
+      <version>4.2.10.RELEASE</version>
     </dependency>
     <!-- Spring Security Artifacts - END -->
 
