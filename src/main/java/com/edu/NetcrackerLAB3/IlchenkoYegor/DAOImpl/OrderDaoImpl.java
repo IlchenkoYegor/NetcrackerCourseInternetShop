@@ -61,7 +61,7 @@ public class OrderDaoImpl implements OrderDAO {
     @Override
     public void saveOrder(CartInfo cartInfo) {
         int orderNum = this.getMaxOrderNum() + 1;
-        int orderId = this.getOrderId()+1;
+
         try (Connection connection = dataSource.getConnection()){
             PreparedStatement preparedStatement =  connection.prepareStatement("INSERT INTO ORDERS ( ACCOUNT_ID, AMOUNT, ORDER_NUM) values (?,?,?)");
             preparedStatement.setInt(1, accountDAO.findAccount(cartInfo.getCustomerInfo().getAccount().getUserName()).getUserId());
@@ -73,7 +73,7 @@ public class OrderDaoImpl implements OrderDAO {
         }
 
         List<CartLineInfo> lines = cartInfo.getCartLines();
-
+        int orderId = this.getOrderId();
         try (Connection connection = dataSource.getConnection();
              PreparedStatement pr = connection.prepareStatement("insert into ORDER_DETAILS (AMOUNT, PRICE, QUANITY, ORDER_ID, PRODUCT_ID) VALUES (?,?,?,?,?)"))
 
